@@ -1,0 +1,59 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+
+<dom-module id="header-element">
+  <template>
+
+    <style>
+      :host {
+        display: block;
+
+      }
+
+      body{
+        margin: 0px;
+      }
+
+      header{
+        background-color: lightgrey;
+        width: 100%;
+        height: 50px;
+        margin-bottom: 100px;
+      }
+
+      h2{
+        text-align: center;
+        line-height: 50px;
+        margin: 0px;
+        letter-spacing: 1px;
+      }
+
+    </style>
+    <header>
+      <h2>Wat wilt u bestellen?</h2>
+    </header>
+
+  </template>
+
+  <script>
+
+
+    /**
+     * @customElement
+     * @polymer
+     */
+    class HeaderElement extends Polymer.Element {
+      static get is() { return 'header-element'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'malle-app'
+          }
+        };
+      }
+    }
+
+    window.customElements.define(HeaderElement.is, HeaderElement);
+  </script>
+</dom-module>

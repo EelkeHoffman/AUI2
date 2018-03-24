@@ -1,0 +1,100 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+
+
+<dom-module id="bestellingen-element">
+  <template>
+
+    <style>
+      :host {
+        display: block;
+
+        background-color: lightgrey;
+        border-radius: 10px;
+        border: 1px solid grey;
+        box-shadow: 5px 10px 18px #888888;
+      }
+
+      .container{
+
+
+
+      }
+      .button{
+
+      }
+      h1{
+        text-align: center;
+      }
+
+    </style>
+    <iron-ajax
+ id="example_ajax_call"
+ method="POST"
+ url="/example"
+ handle-as="json"
+ on-response="handleAjaxResponse"
+ ></iron-ajax>
+ <paper-button on-click="clickHandler2">klaar</paper-button><br/>
+  <paper-button on-click="clickHandler">ververs</paper-button><br/>
+   <p>bestellingen: <span id="response_text"></span></p>
+
+  </template>
+ 
+
+  <script>
+
+
+    /**
+     * @customElement
+     * @polymer
+     */
+    class BestellingenElement extends Polymer.Element {
+      static get is() { return 'bestellingen-element'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'malle-app'
+          },
+          aantalf:{
+            type: String,
+
+          },
+          aantalk:{
+            type: String,
+          },
+          tafelnr:{
+            type: String,
+
+          },
+          aantalff:{
+
+            type: String
+          }
+        };
+      }
+      clickHandler() {
+ this.$.example_ajax_call.contentType="application/json";
+ this.$.example_ajax_call.params = { "user": "test" };
+ this.$.example_ajax_call.body = { "user": "test" };
+ this.$.example_ajax_call.generateRequest();
+ }
+ clickHandler2() {
+ this.$.example_ajax_call.contentType="application/json";
+ this.$.example_ajax_call.params = { "user": "done" };
+ this.$.example_ajax_call.body = { "user": "done" };
+ this.$.example_ajax_call.generateRequest();
+ this.clickHandler;
+ }
+ 
+ handleAjaxResponse(result) {
+ this.$.response_text.textContent = result.detail.response.message;
+ }
+    }
+
+    window.customElements.define(BestellingenElement.is, BestellingenElement);
+  </script>
+</dom-module>

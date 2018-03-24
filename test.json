@@ -1,0 +1,7 @@
+{
+  "name": "webapp",
+  "short_name": "webapp",
+  "description": "dewebapp",
+  "start_url": "/",
+  "display": "standalone"
+}

@@ -1,0 +1,121 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+
+
+
+<dom-module id="bestel-element2">
+  <template>
+
+    <style>
+    :host {
+      display: block;
+
+    }
+
+    .container{
+      width: 600px;
+      margin: 0 auto;
+      background-color: lightgrey;
+      border-radius: 10px;
+      border: 1px solid grey;
+      box-shadow: 5px 10px 18px #888888;
+    }
+
+    .gerecht1,.gerecht2{
+      padding: 20px;
+    }
+
+
+
+
+    }
+      h1{
+        text-align: center;
+      }
+
+    </style>
+    <iron-ajax
+ id="example_ajax_call"
+ method="POST"
+ url="/example"
+ handle-as="json"
+ on-response="handleAjaxResponse"
+ ></iron-ajax>
+<paper-input label="tafelnr" value={{tafelnr}}></paper-input>
+<div class="container">
+<div class="gerecht1">
+  <img src=".\img\gerecht1.jpg" alt="gerecht1" width=150px, height=100px> <br>
+  <paper-input id="1" label="aantal" value={{aantalff}}></paper-input>
+
+
+
+
+</div>
+<div class="gerecht2">
+  <img src=".\img\gerecht2.jpg" alt="gerecht1" width=150px, height=100px> <br>
+  <paper-input label="aantal"  value={{aantalkk}}></paper-input>
+ <paper-button on-click="clickHandler">GO</paper-button><br/>
+  </div>
+
+
+
+
+</div>
+
+  </template>
+
+  <script>
+  function done(){
+  document.getElementById("1").disabled = true;
+
+  }
+
+
+    /**
+     * @customElement
+     * @polymer
+     */
+    class BesteLElement2 extends Polymer.Element {
+      static get is() { return 'bestel-element2'; }
+      static get properties() {
+        return {
+
+
+          prop1: {
+            type: String,
+            value: 'malle-app'
+          },
+          aantalff:{
+            type: String,
+
+          },
+          dis:{
+            type: String,
+            value: "disabled"
+          },
+          aantalkk:{
+            type: String,
+          },
+          tafelnr:{
+            type: String,
+
+          }
+
+        };
+
+      }
+
+  clickHandler() {
+ this.$.example_ajax_call.contentType="application/json";
+ this.$.example_ajax_call.params = { "user": "kroketten: "+this.aantalkk + "frikandellen" + this.aantalff  };
+ this.$.example_ajax_call.body = { "user": ("tafel: " + this.tafelnr +  " kroketten: "+this.aantalkk + " frikandellen " + this.aantalff) };
+ this.$.example_ajax_call.generateRequest();
+ }
+    }
+
+    window.customElements.define(BesteLElement2.is, BesteLElement2);
+  </script>
+</dom-module>

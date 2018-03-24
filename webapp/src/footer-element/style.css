@@ -1,0 +1,103 @@
+
+head{
+    background-color: Black;
+}
+
+body {
+  background-color: lightblue;
+
+
+
+}
+
+h5{
+  width: 700px;
+}
+.tekst{
+  position: relative;
+    height:200px;
+
+}
+p {
+    font-family: verdana;
+    font-size: 20px;
+}
+p1 {
+    font-family: verdana;
+    font-size: 10px;
+}
+.form1  {
+    width:750px;
+    list-style-type:none;
+    list-style-position:outside;
+    margin:0px;
+    padding:0px;
+  }
+.container{
+  position: relative;
+
+  float: left;
+  height: 500px;
+  width: 1202px;
+
+}
+label { float: left; width: 10em; margin-right: 1em; }
+.links{
+  position: absolute;
+
+  border:1px solid black;
+  float:left;
+  height: 500px;
+  width: 600px;
+
+
+}
+
+.linksf{
+
+  float: left;
+
+  width: 100px;
+  height: 75px;
+
+}
+h3{
+
+  position: absolute; bottom:0px;
+  font-weight: normal;
+}
+h6{
+
+  text-align: center;
+}
+.rechtsf{
+  float: right;
+
+  width: 100px;
+  height: 75px;
+
+
+}
+
+.midden{
+
+  width: 1300px;
+  height: 75;
+  margin: 0 auto;
+}
+.containerf{
+  position:absolute; bottom:0px;
+
+  width: 1500px;
+  height: 75px
+
+
+
+}
+.rechts{
+  position: relative;
+  border:1px solid black;
+  float:right;
+  height: 500px;
+  width: 600px;
+}

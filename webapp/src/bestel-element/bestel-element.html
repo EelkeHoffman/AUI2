@@ -1,0 +1,92 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+
+
+
+<dom-module id="bestel-element">
+  <template>
+
+    <style>
+      :host {
+        display: block;
+
+      }
+
+      .container{
+        width: 600px;
+        margin: 0 auto;
+        background-color: lightgrey;
+        border-radius: 10px;
+        border: 1px solid grey;
+        box-shadow: 5px 10px 18px #888888;
+      }
+
+      .gerecht1,.gerecht2{
+        padding: 20px;
+      }
+
+
+
+
+      }
+      h1{
+        text-align: center;
+      }
+
+    </style>
+<paper-input label="tafelnr" value={{tafelnr}}></paper-input>
+<div class="container">
+<div class="gerecht1">
+  <img src=".\img\gerecht1.jpg" alt="gerecht1" width=150px, height=100px> <br>
+  <paper-input label="aantal" value={{aantalf}}></paper-input>
+</div>
+
+
+<div class="gerecht2">
+  <img src=".\img\gerecht2.jpg" alt="gerecht1" width=150px, height=100px> <br>
+  <paper-input label="aantal" value={{aantalk}}></paper-input>
+</div>
+
+
+
+
+</div>
+
+  </template>
+
+  <script>
+
+
+    /**
+     * @customElement
+     * @polymer
+     */
+    class BesteLElement extends Polymer.Element {
+      static get is() { return 'bestel-element'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'malle-app'
+          },
+          aantalf:{
+            type: String,
+
+          },
+          aantalk:{
+            type: String,
+          },
+          tafelnr:{
+            type: String,
+
+          }
+        };
+      }
+
+
+    }
+
+    window.customElements.define(BesteLElement.is, BesteLElement);
+  </script>
+</dom-module>

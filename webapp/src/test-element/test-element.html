@@ -1,0 +1,54 @@
+<link rel="import" href="../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/iron-ajax/iron-ajax.html">
+
+
+
+<dom-module id="test-element">
+  <template>
+   <iron-ajax
+ id="example_ajax_call"
+ method="POST"
+ url="/example"
+ handle-as="json"
+ on-response="handleAjaxResponse"
+ ></iron-ajax>
+   <paper-button on-click="clickHandler">GO</paper-button><br/>
+ <p>Response: <span id="response_text"></span></p>
+ <paper-input label="Uw naam:" value="{{name}}"></paper-input>
+  </template>
+  
+
+  <script>
+    /**
+     * @customElement
+     * @polymer
+     */
+    class TestElement extends Polymer.Element {
+      static get is() { return 'test-element'; }
+      static get properties() {
+        return {
+          name: {
+            type: String,
+            value: 'eelke'
+          }
+        };
+      }
+         clickHandler() {
+ this.$.example_ajax_call.contentType="application/json";
+  this.$.example_ajax_call.params = { "user": this.name };
+ this.$.example_ajax_call.body = { "user": this.name };
+ this.$.example_ajax_call.generateRequest();
+ }
+ handleAjaxResponse(result) {
+ this.$.response_text.textContent = result.detail.response.message;
+ }
+      
+      
+      
+    }
+
+    window.customElements.define(TestElement.is, TestElement);
+  </script>
+</dom-module>
